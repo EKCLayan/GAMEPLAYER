@@ -19,7 +19,7 @@ The system utilizes a two-button navigation layout to access games without requi
 ### Hardware Setup(As of 20/05/2026)
 
 * Arduino Nano
-* 0.91 inch OLED display
+* 0.96 inch OLED display
 * Pushbuttons
 * Jumperwires
 * Breadboard
