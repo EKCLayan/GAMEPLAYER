@@ -8,17 +8,21 @@ U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, U8X8_PIN_NONE);
 #define GRID_SIZE 4
 
 int snakeX[100], snakeY[100];
-int snakeLen = 3;
-int foodX, foodY;
+byte snakeLen = 3;
+byte foodX, foodY;
 int dirX = 1, dirY = 0;
 bool gameOver = false;
-int score = 0;
+byte score = 0;
 
-int buttonL = 6;
-int buttonR = 5;
+byte buttonL = 6;
+byte buttonR = 5;
+byte buttonUp = 7;
+byte buttonDn = 8;
 
-int buttonstateL = 0;
-int buttonstateR = 0;
+byte buttonstateL = 0;
+byte buttonstateR = 0;
+byte buttonstateUp = 0;
+byte buttonstateDn = 0;
 
 
 
@@ -35,12 +39,14 @@ foodY = random(1, 16);
 
 pinMode(buttonL, INPUT_PULLUP);
 pinMode(buttonR, INPUT_PULLUP);
+pinMode(buttonUp, INPUT_PULLUP);
+pinMode(buttonDn, INPUT_PULLUP);
 }
 
 void drawGame(){
   u8g2.clearBuffer();
 
-  for(int i = 0;i < snakeLen; i++){
+  for(byte i = 0;i < snakeLen; i++){
     u8g2.drawBox(snakeX[i] * GRID_SIZE, snakeY[i] * GRID_SIZE, GRID_SIZE, GRID_SIZE);
 
   }
@@ -59,7 +65,7 @@ void loop() {
 }
 
 void moveSnake(){
-  for (int i = snakeLen - 1; i > 0; i--){
+  for (byte i = snakeLen - 1; i > 0; i--){
     snakeX[i] = snakeX[i - 1];
     snakeY[i] = snakeY[i - 1];
   }
@@ -91,40 +97,22 @@ void moveSnake(){
 void readInput(){
   buttonstateR = digitalRead(buttonR);
   buttonstateL = digitalRead(buttonL);
+  buttonstateUp = digitalRead(buttonUp);
+  buttonstateDn = digitalRead(buttonDn);
 
 
-  if (buttonstateR == false && buttonstateL == true && dirX == 1 ){
-    dirX = 0; dirY = 1;
-    //Serial.println("Moving Right");
-  }
-  else if (buttonstateL == false && buttonstateR == true && dirX == 1){
-    dirX = 0; dirY = -1;
-    //Serial.println("Moving left");
-  }
-  else if (buttonstateR == false && buttonstateL == true && dirX == -1 ){
-    dirX = 0; dirY = -1;
-    //Serial.println("Moving Right");
-  }
-  else if (buttonstateL == false && buttonstateR == true && dirX == -1){
-    dirX = 0; dirY = 1;
-    //Serial.println("Moving left");
-  }
-  else if (buttonstateR == false && buttonstateL == true && dirY == 1 ){
-    dirX = -1; dirY = 0;
-    //Serial.println("Moving Right");
-  }
-  else if (buttonstateL == false && buttonstateR == true && dirY == 1){
-    dirX = 1; dirY = 0;
-    //Serial.println("Moving left");
-  }
-  else if (buttonstateR == false && buttonstateL == true && dirY == -1 ){
+  if (buttonstateR == false && dirX != -1){
     dirX = 1; dirY = 0;
     //Serial.println("Moving Right");
   }
-  else if (buttonstateL == false && buttonstateR == true && dirY == -1){
+  else if (buttonstateL == false && dirX != 1){
     dirX = -1; dirY = 0;
-    //Serial.println("Moving left");
+  }
+  else if (buttonstateUp == false && dirY != 1){
+    dirX = 0; dirY = -1;
+  }
+  else if (buttonstateDn == false && dirY != -1){
+    dirX = 0; dirY = 1;
   }
 
 }
-
