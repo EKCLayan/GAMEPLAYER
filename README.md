@@ -33,7 +33,7 @@ The system utilizes a two-button navigation layout to access games without requi
 * 1 x Breadboard
 
 ### Hardware v1 Photo(Takes on 31/05/2026)
-![Setup](hardwarev1.jpeg)
+![Setup](hardware_v1.jpg)
 
 
 
