@@ -57,7 +57,9 @@ The system utilizes a two-button navigation layout to access games without requi
 * 1 x passive buzzer
 * assorted wires
 
-  
+### Hardware v3 Photo(Takes on 01/06/2026) 
+![Setup](image/hardware_v3.jpeg)
+
 
 
 
