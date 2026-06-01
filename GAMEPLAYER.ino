@@ -7,7 +7,7 @@ U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, U8X8_PIN_NONE);
 #define SCREEN_HEIGHT 64
 #define GRID_SIZE 4
 
-int snakeX[100], snakeY[100];
+int snakeX[30], snakeY[30];
 byte snakeLen = 3;
 byte foodX, foodY;
 int dirX = 1, dirY = 0;
@@ -19,10 +19,17 @@ byte buttonR = 5;
 byte buttonUp = 7;
 byte buttonDn = 8;
 
+int buzzerPin = 2;
+
 byte buttonstateL = 0;
 byte buttonstateR = 0;
 byte buttonstateUp = 0;
 byte buttonstateDn = 0;
+
+byte prevstateL = 1;
+byte prevstateR = 1;
+byte prevstateUp = 1;
+byte prevstateDn = 1;
 
 
 
@@ -41,6 +48,7 @@ pinMode(buttonL, INPUT_PULLUP);
 pinMode(buttonR, INPUT_PULLUP);
 pinMode(buttonUp, INPUT_PULLUP);
 pinMode(buttonDn, INPUT_PULLUP);
+pinMode(buzzerPin, OUTPUT); 
 }
 
 void drawGame(){
@@ -101,18 +109,25 @@ void readInput(){
   buttonstateDn = digitalRead(buttonDn);
 
 
-  if (buttonstateR == false && dirX != -1){
+  if (buttonstateR == false && dirX != -1 && prevstateR == true){
     dirX = 1; dirY = 0;
-    //Serial.println("Moving Right");
+    tone(buzzerPin, 1500, 10); 
   }
-  else if (buttonstateL == false && dirX != 1){
+  else if (buttonstateL == false && dirX != 1 && prevstateL == true){
     dirX = -1; dirY = 0;
+    tone(buzzerPin, 1500, 10); 
   }
-  else if (buttonstateUp == false && dirY != 1){
+  else if (buttonstateUp == false && dirY != 1 && prevstateUp == true){
     dirX = 0; dirY = -1;
+    tone(buzzerPin, 1500, 10); 
   }
-  else if (buttonstateDn == false && dirY != -1){
+  else if (buttonstateDn == false && dirY != -1 && prevstateDn == true){
     dirX = 0; dirY = 1;
+    tone(buzzerPin, 1500, 10); 
   }
 
+  prevstateL = buttonstateL;
+  prevstateR = buttonstateR;
+  prevstateUp = buttonstateUp;
+  prevstateDn = buttonstateDn;
 }
