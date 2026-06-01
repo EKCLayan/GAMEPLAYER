@@ -47,6 +47,17 @@ The system utilizes a two-button navigation layout to access games without requi
 ### Hardware v2 Photo(Takes on 31/05/2026)
 ![Setup](image/hardware_v2.jpeg)
 
+### Hardware Setup Update (As of 01/06/2026)
+
+* 1 x Arduino Nano
+* 1 x 0.96" OLED Module 4-pin IIC 3.3-5V (SSD1315)
+* 4 x Pushbuttons (N.O)
+* 8 x Jumperwires
+* 1 x Breadboard
+* 1 x passive buzzer
+* assorted wires
+
+  
 
 
 
