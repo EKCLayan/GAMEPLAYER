@@ -37,6 +37,7 @@ void setup() {
 u8g2.begin();
 randomSeed(analogRead(0));
 
+
 snakeX[0] = 8, snakeY[0] = 8;
 snakeX[1] = 7, snakeY[1] = 8;
 snakeX[2] = 6, snakeY[2] = 8;
@@ -66,6 +67,8 @@ void drawGame(){
 void loop() {
   readInput();
   moveSnake();
+  checkCollision();
+  endGame();
   drawGame();
   delay(100);
 
@@ -130,4 +133,44 @@ void readInput(){
   prevstateR = buttonstateR;
   prevstateUp = buttonstateUp;
   prevstateDn = buttonstateDn;
+}
+
+void checkCollision(){
+  for(byte i = 1;i < snakeLen; i++) {
+    if(snakeX[0] == snakeX[i] && snakeY[0] == snakeY[i]){
+      gameOver = true;
+     
+    }
+  
+  }
+}
+void endGame(){
+    if (gameOver == true){
+    tone(buzzerPin, 300, 10);
+    delay(200);
+    endDisplay();
+    delay(1500);
+    restartGame();
+    gameOver = false;
+
+   }
+}
+
+void restartGame(){
+  snakeLen = 3;
+  dirX = 1, dirY = 0;
+  score = 0;
+  snakeX[0] = 8, snakeY[0] = 8;
+  snakeX[1] = 7, snakeY[1] = 8;
+  snakeX[2] = 6, snakeY[2] = 8;
+  
+}
+void endDisplay(){
+  if (gameOver == true){
+    u8g2.clearBuffer();
+    u8g2.setFont(u8g2_font_9x15_tr);
+    u8g2.drawStr(28, 39, "GameOver");
+    u8g2.sendBuffer();
+    delay(200);
+  }
 }
