@@ -86,7 +86,6 @@ void moveSnake(){
 
   if( snakeX[0] == foodX && snakeY[0] == foodY){
     snakeLen++;
-    score++;
     foodX = random(1, 32);
     foodY = random(1, 16);
   }
@@ -103,6 +102,8 @@ void moveSnake(){
   if(snakeY[0] > 15){
     snakeY[0] = 0;
   }
+
+  score = snakeLen - 3;
 }
 
 void readInput(){
@@ -170,6 +171,9 @@ void endDisplay(){
     u8g2.clearBuffer();
     u8g2.setFont(u8g2_font_9x15_tr);
     u8g2.drawStr(28, 39, "GameOver");
+    u8g2.drawStr(28, 51, "Score:");
+    u8g2.setCursor(82, 51);
+    u8g2.print(score);
     u8g2.sendBuffer();
     delay(200);
   }
