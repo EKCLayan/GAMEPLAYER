@@ -8,13 +8,15 @@ The goal of this personal project is to build a compact, budget-friendly console
 
 ### User Interface & Control Logic
 
-The system utilizes a two-button navigation layout to access games without requiring complex hardware menus:
+The system utilizes a four-button navigation layout to access games without requiring complex hardware menus:
 
-* **Power On / Menu Access:** The user presses **Button 1 and Button 2 simultaneously** to wake the system and open the main game selection menu.
+* **Power On / Menu Access:**(Planned) The user presses **Button 1 and Button 2 simultaneously** to wake the system and open the main game selection menu.
 * **Menu Navigation:** 
-  - Press **Button 1** to move the menu cursor to the **Left**.
-  - Press **Button 2** to move the menu cursor to the **Right**.
-* **Game Selection:** Press **Button 1 and Button 2 simultaneously** to confirm and boot into the selected game.
+  - Press **ButtonL** to move the cursor Left.
+  - Press **ButtonR** to move the cursor Right.
+  - Press **ButtonUp** to move the cursor Up.
+  - Press **ButtonDn** to move the cursor Down.
+* **Game Selection:**(Planned) Press **Button 1 and Button 2 simultaneously** to confirm and boot into the selected game.
 
 
 ### Software Setup(As of 20/05/2026)
