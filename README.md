@@ -34,10 +34,12 @@ The system utilizes a four-button navigation layout to access games without requ
 * 8 x Jumperwires
 * 1 x Breadboard
 
-### Hardware v1 Photo(Takes on 31/05/2026)
+### Hardware v1 Photo(Taken on 31/05/2026)
 ![Setup](image/hardware_v1.jpeg)
 
 ### Hardware Setup Update (As of 31/05/2026)
+
+**What's new:** Added an additional 2 pushbuttons as when i was playing the game with just 2 pushbuttons where left meant left in the snakes perspective and not the users perspective which made it harder to play and make the snake move in the desired direction but now with 4 buttons for 4 directions(Up,Down,Left,Right) its easier to maneuver from the users perspecitve where the top button meant move up, middle left button meant turn left, middle right button meant turn right and the bottom at the very bottom meant move down
 
 * 1 x Arduino Nano
 * 1 x 0.96" OLED Module 4-pin IIC 3.3-5V (SSD1315)
@@ -46,10 +48,12 @@ The system utilizes a four-button navigation layout to access games without requ
 * 1 x Breadboard
 * assorted wires
 
-### Hardware v2 Photo(Takes on 31/05/2026)
+### Hardware v2 Photo(Taken on 31/05/2026)
 ![Setup](image/hardware_v2.jpeg)
 
 ### Hardware Setup Update (As of 01/06/2026)
+
+**What's new:** Added buzzer to give a better user feel
 
 * 1 x Arduino Nano
 * 1 x 0.96" OLED Module 4-pin IIC 3.3-5V (SSD1315)
@@ -59,7 +63,7 @@ The system utilizes a four-button navigation layout to access games without requ
 * 1 x passive buzzer
 * assorted wires
 
-### Hardware v3 Photo(Takes on 01/06/2026) 
+### Hardware v3 Photo(Taken on 01/06/2026) 
 ![Setup](image/hardware_v3.jpeg)
 
 
