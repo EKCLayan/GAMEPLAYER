@@ -66,6 +66,21 @@ The system utilizes a four-button navigation layout to access games without requ
 ### Hardware v3 Photo(Taken on 01/06/2026) 
 ![Setup](image/hardware_v3.jpeg)
 
+### Hardware Setup Update (As of 14/06/2026)
+
+**What's new:** Changed the microcontroller from Arduino nano to ESP32.The reason is the nano has limitied space and the current games Ballie and Snake are taking up alot of space where the Snake takes upto 87% and Ballie takes upto 77% of the dynamic memory
+
+* 1 x ESP32 WROOM 32
+* 1 x ESP32 Expansion Board
+* 1 x 0.96" OLED Module 4-pin IIC 3.3-5V (SSD1315)
+* 4 x Pushbuttons (N.O)
+* 1 x Breadboard
+* 1 x passive buzzer
+* assorted wires
+* assorted Jumperwires
+
+### Hardware v4 Photo(Taken on 14/06/2026) 
+![Setup](image/hardware_v4.jpeg)
 
 
 
