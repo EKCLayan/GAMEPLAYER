@@ -14,12 +14,12 @@ int dirX = 1, dirY = 0;
 bool gameOver = false;
 byte score = 0;
 
-byte buttonL = 6;
-byte buttonR = 5;
-byte buttonUp = 7;
-byte buttonDn = 8;
+byte buttonL = 25;
+byte buttonR = 26;
+byte buttonUp = 27;
+byte buttonDn = 14;
 
-int buzzerPin = 2;
+int buzzerPin = 33;
 
 byte buttonstateL = 0;
 byte buttonstateR = 0;
@@ -114,20 +114,28 @@ void readInput(){
 
 
   if (buttonstateR == false && dirX != -1 && prevstateR == true){
+    if(dirX != 1 || dirY != 0){
+      tone(buzzerPin, 1500, 10); 
+    }
     dirX = 1; dirY = 0;
-    tone(buzzerPin, 1500, 10); 
   }
   else if (buttonstateL == false && dirX != 1 && prevstateL == true){
+    if(dirX != -1 || dirY != 0){
+      tone(buzzerPin, 1500, 10); 
+    }
     dirX = -1; dirY = 0;
-    tone(buzzerPin, 1500, 10); 
   }
   else if (buttonstateUp == false && dirY != 1 && prevstateUp == true){
+    if(dirX != 0 || dirY != -1){
+      tone(buzzerPin, 1500, 10); 
+    }
     dirX = 0; dirY = -1;
-    tone(buzzerPin, 1500, 10); 
   }
   else if (buttonstateDn == false && dirY != -1 && prevstateDn == true){
+    if(dirX != 0 || dirY != 1){
+      tone(buzzerPin, 1500, 10); 
+    }
     dirX = 0; dirY = 1;
-    tone(buzzerPin, 1500, 10); 
   }
 
   prevstateL = buttonstateL;
