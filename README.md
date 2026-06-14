@@ -80,6 +80,7 @@ The system utilizes a four-button navigation layout to access games without requ
 * assorted Jumperwires
 
 ### Hardware v4 Photo(Taken on 14/06/2026) 
+![Setup](image/hardware_v4.jpeg)
 
 
 
