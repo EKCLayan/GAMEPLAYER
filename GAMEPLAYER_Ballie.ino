@@ -1,7 +1,7 @@
 #include <Wire.h>
 #include <U8g2lib.h>
 
-U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, U8X8_PIN_NONE);
+U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, U8X8_PIN_NONE, 22, 21);
 
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
@@ -9,10 +9,10 @@ U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, U8X8_PIN_NONE);
 
 int ballp = 1;
 int score = 0;
-int buttonR = 5;
+int buttonR = 26;
 int buttonstateR = 0;
 bool gameOver = false;
-int buzzerPin = 2;
+int buzzerPin = 33;
 int speed = 100;
 
 void setup(){
