@@ -5,7 +5,6 @@ U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, U8X8_PIN_NONE, 22, 21);
 
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
-#define GRID_SIZE 4
 
 int ballp = 1;
 int score = 0;
@@ -18,7 +17,7 @@ int speed = 100;
 void setup(){
   u8g2.begin();
   pinMode(buttonR, INPUT_PULLUP);
-  //Serial.begin(9600);
+ //Serial.begin(9600);
 }
 
 void loop(){
