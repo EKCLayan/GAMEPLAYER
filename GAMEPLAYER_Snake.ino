@@ -35,6 +35,7 @@ byte prevstateDn = 1;
 
 void setup() {
 u8g2.begin();
+//Serial.begin(9600);
 randomSeed(analogRead(0));
 
 
@@ -118,24 +119,28 @@ void readInput(){
       tone(buzzerPin, 1500, 10); 
     }
     dirX = 1; dirY = 0;
+    //Serial.println("Right Pressed");
   }
   else if (buttonstateL == false && dirX != 1 && prevstateL == true){
     if(dirX != -1 || dirY != 0){
       tone(buzzerPin, 1500, 10); 
     }
     dirX = -1; dirY = 0;
+    //Serial.println("Left Pressed");
   }
   else if (buttonstateUp == false && dirY != 1 && prevstateUp == true){
     if(dirX != 0 || dirY != -1){
       tone(buzzerPin, 1500, 10); 
     }
     dirX = 0; dirY = -1;
+    //Serial.println("Up Pressed");
   }
   else if (buttonstateDn == false && dirY != -1 && prevstateDn == true){
     if(dirX != 0 || dirY != 1){
       tone(buzzerPin, 1500, 10); 
     }
     dirX = 0; dirY = 1;
+    //Serial.println("Down Pressed");
   }
 
   prevstateL = buttonstateL;
