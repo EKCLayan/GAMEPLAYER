@@ -18,6 +18,7 @@ int speed = 100;
 void setup(){
   u8g2.begin();
   pinMode(buttonR, INPUT_PULLUP);
+  Serial.begin(9600);
 }
 
 void loop(){
@@ -59,6 +60,7 @@ void ballScore(){
   score = score+1;
   tone(buzzerPin, 1500, 10);
   delay(100);
+  //Serial.println("Right Pressed");
   }
   else if(buttonstateR == false && (ballp < 95 || ballp > 105)){
   score = score-1;
