@@ -78,7 +78,7 @@ u8g2.drawBox(0, 61, 124, 3);
 }
 
 void blockwallCollision(){
-if(blockp == wallpp && blockhp >= 45){
+if(blockp + GRID_SIZE >= wallpp && blockhp >= 45 && blockp<= wallpp + 4){
   gameOver = true;
   tone(buzzerPin, 300, 10);
   endDisplay();
@@ -91,5 +91,14 @@ void endDisplay(){
     u8g2.drawStr(28, 39, "GameOver");
     u8g2.sendBuffer();
     delay(2000);
+    restartGame();
+    gameOver = false;
   }
+}
+
+void restartGame(){
+  blockpp = 1;
+  blockp = blockpp * GRID_SIZE;
+  blocktopos = false;
+  wallpp = 128;
 }
