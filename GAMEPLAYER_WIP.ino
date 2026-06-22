@@ -12,8 +12,10 @@ int wallpp = 128;
 int buttonUp = 27;
 int buttonstateUp = 1;
 int blockp = blockpp * GRID_SIZE;
-int blockhp = SCREEN_HEIGHT - GRID_SIZE;
+int blockhp = SCREEN_HEIGHT - GRID_SIZE - 3;
+int buzzerPin = 33;
 bool blocktopos = false;
+bool gameOver = false;
 
 void setup() {
  u8g2.begin();
@@ -27,17 +29,19 @@ void loop() {
  blockJump();
  moveBlock();
  moveWall();
+ blockwallCollision();
 
 }
 
 void drawGame(){
   u8g2.clearBuffer();
+  blockFloor();
   u8g2.drawBox(blockp, blockhp, GRID_SIZE, GRID_SIZE);
-  u8g2.drawBox(wallpp, 48, 4, 16);
+  u8g2.drawBox(wallpp, 45, 4, 16);
   u8g2.sendBuffer();
   delay(100);
 
-  blockhp = SCREEN_HEIGHT - GRID_SIZE;
+  blockhp = SCREEN_HEIGHT - GRID_SIZE - 3;
 
 }
 void moveBlock(){
@@ -67,4 +71,25 @@ if(buttonstateUp == LOW){
  //Serial.println("button pressed");
  blockhp = blockhp - 25;
 }
+}
+
+void blockFloor(){
+u8g2.drawBox(0, 61, 124, 3);
+}
+
+void blockwallCollision(){
+if(blockp == wallpp && blockhp >= 45){
+  gameOver = true;
+  tone(buzzerPin, 300, 10);
+  endDisplay();
+}
+}
+void endDisplay(){
+  if(gameOver == true){
+    u8g2.clearBuffer();
+    u8g2.setFont(u8g2_font_9x15_tr);
+    u8g2.drawStr(28, 39, "GameOver");
+    u8g2.sendBuffer();
+    delay(2000);
+  }
 }
