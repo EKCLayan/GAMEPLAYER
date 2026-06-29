@@ -6,6 +6,9 @@ A low-cost, handheld multi-game gaming console designed for a single-user experi
 
 The goal of this personal project is to build a compact, budget-friendly console that hosts multiple playable games within a single hardware setup.
 
+### Acknowledgements
+This project was developed with guidance from AI tools (Claude by Anthropic, ChatGPT by OpenAI) for learning purposes. Design decisions, hardware setup, and implementation were completed by me.
+
 ### User Interface & Control Logic
 
 The system utilizes a four-button navigation layout to access games without requiring complex hardware menus:
